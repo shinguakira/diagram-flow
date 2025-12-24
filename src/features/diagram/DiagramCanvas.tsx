@@ -6,6 +6,7 @@ import { useRef, useState, useCallback } from 'react';
 import { useDiagramStore } from '@/store/diagramStore';
 import type { Node as DiagramNode } from '@/domain/diagramTypes';
 import { generateId } from '@/domain/diagramTypes';
+import { DEFAULT_NODE_WIDTH, DEFAULT_NODE_HEIGHT } from '@/lib/constants';
 
 interface DiagramCanvasProps {
   className?: string;
@@ -36,8 +37,8 @@ export function DiagramCanvas({ className = '' }: DiagramCanvasProps) {
           type: 'default',
           label: 'New Node',
           position: { x, y },
-          width: 150,
-          height: 80,
+          width: DEFAULT_NODE_WIDTH,
+          height: DEFAULT_NODE_HEIGHT,
         };
 
         addNode(newNode);
@@ -110,10 +111,10 @@ export function DiagramCanvas({ className = '' }: DiagramCanvasProps) {
           const targetNode = present.nodes.get(edge.targetId);
           if (!sourceNode || !targetNode) return null;
 
-          const sourceX = sourceNode.position.x + (sourceNode.width || 150) / 2;
-          const sourceY = sourceNode.position.y + (sourceNode.height || 80) / 2;
-          const targetX = targetNode.position.x + (targetNode.width || 150) / 2;
-          const targetY = targetNode.position.y + (targetNode.height || 80) / 2;
+          const sourceX = sourceNode.position.x + (sourceNode.width || DEFAULT_NODE_WIDTH) / 2;
+          const sourceY = sourceNode.position.y + (sourceNode.height || DEFAULT_NODE_HEIGHT) / 2;
+          const targetX = targetNode.position.x + (targetNode.width || DEFAULT_NODE_WIDTH) / 2;
+          const targetY = targetNode.position.y + (targetNode.height || DEFAULT_NODE_HEIGHT) / 2;
 
           return (
             <g key={edge.id}>
@@ -158,8 +159,8 @@ export function DiagramCanvas({ className = '' }: DiagramCanvasProps) {
 
         {/* Render nodes */}
         {nodes.map((node) => {
-          const width = node.width || 150;
-          const height = node.height || 80;
+          const width = node.width || DEFAULT_NODE_WIDTH;
+          const height = node.height || DEFAULT_NODE_HEIGHT;
           const isSelected = node.id === selectedNodeId;
 
           return (

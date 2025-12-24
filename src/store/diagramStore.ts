@@ -6,6 +6,7 @@ import { create } from 'zustand';
 import type { Diagram, Node, Edge } from '../domain/diagramTypes';
 import { createEmptyDiagram } from '../domain/diagramTypes';
 import * as ops from '../domain/diagramOps';
+import { MAX_HISTORY_LENGTH } from '@/lib/constants';
 
 interface DiagramHistory {
   past: Diagram[];
@@ -34,8 +35,6 @@ interface DiagramStore extends DiagramHistory {
   setDiagram: (diagram: Diagram) => void;
 }
 
-const MAX_HISTORY = 50;
-
 /**
  * Helper function to add a new state to history
  */
@@ -44,7 +43,7 @@ function addToHistory(
   present: Diagram,
   newPresent: Diagram
 ): DiagramHistory {
-  const newPast = [...past, present].slice(-MAX_HISTORY);
+  const newPast = [...past, present].slice(-MAX_HISTORY_LENGTH);
   return {
     past: newPast,
     present: newPresent,

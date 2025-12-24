@@ -14,6 +14,7 @@ import { Separator } from '@/components/ui/separator';
 import { useDiagramStore } from '@/store/diagramStore';
 import { generateId } from '@/domain/diagramTypes';
 import type { Node as DiagramNode } from '@/domain/diagramTypes';
+import { DEFAULT_NODE_WIDTH, DEFAULT_NODE_HEIGHT, DEFAULT_NODE_POSITION } from '@/lib/constants';
 
 interface ToolbarProps {
   onSave?: () => void;
@@ -35,9 +36,9 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         id: generateId('node'),
         type: 'default',
         label: 'New Node',
-        position: { x: 400, y: 300 },
-        width: 150,
-        height: 80,
+        position: DEFAULT_NODE_POSITION,
+        width: DEFAULT_NODE_WIDTH,
+        height: DEFAULT_NODE_HEIGHT,
       };
       addNode(newNode);
     }

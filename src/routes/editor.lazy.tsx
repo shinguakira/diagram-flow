@@ -8,6 +8,7 @@ import { ConfirmDialog } from '@/components/ConfirmDialog'
 import { useDiagramStore } from '@/store/diagramStore'
 import { saveDiagram, loadDiagram } from '@/lib/storage'
 import { useToast } from '@/hooks/useToast'
+import { AUTO_SAVE_DELAY } from '@/lib/constants'
 
 export const Route = createLazyFileRoute('/editor')({
   component: Editor,
@@ -31,7 +32,7 @@ function Editor() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       saveDiagram(present)
-    }, 1000)
+    }, AUTO_SAVE_DELAY)
 
     return () => clearTimeout(timeoutId)
   }, [present])
@@ -83,4 +84,3 @@ function Editor() {
     </div>
   )
 }
-
