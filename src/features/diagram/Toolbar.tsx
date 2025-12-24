@@ -20,10 +20,11 @@ interface ToolbarProps {
   onLoad?: () => void;
   onAddNode?: () => void;
   onClear?: () => void;
+  onConfirmClear?: () => void;
 }
 
 export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
-  const { undo, redo, canUndo, canRedo, addNode, reset } = useDiagramStore();
+  const { undo, redo, canUndo, canRedo, addNode } = useDiagramStore();
 
   const handleAddNode = () => {
     if (onAddNode) {
@@ -45,10 +46,6 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
   const handleClear = () => {
     if (onClear) {
       onClear();
-    } else {
-      if (confirm('Are you sure you want to clear the diagram?')) {
-        reset();
-      }
     }
   };
 
