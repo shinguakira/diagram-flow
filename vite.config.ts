@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
+import path from "path"
 
 // https://vite.dev/config/
-import path from "path";
 export default defineConfig({
   plugins: [
     react(),
@@ -13,5 +14,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-});
 })
