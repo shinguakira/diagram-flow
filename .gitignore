@@ -16,6 +16,11 @@ dist-ssr
 # Generated files
 src/routeTree.gen.ts
 
+# Playwright
+e2e/test-results/
+e2e/report/
+playwright-report/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

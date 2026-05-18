@@ -57,6 +57,7 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Save diagram"
               variant="ghost"
               size="icon"
               onClick={onSave}
@@ -71,6 +72,7 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Load diagram"
               variant="ghost"
               size="icon"
               onClick={onLoad}
@@ -88,6 +90,7 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Undo"
               variant="ghost"
               size="icon"
               onClick={() => undo()}
@@ -102,6 +105,7 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Redo"
               variant="ghost"
               size="icon"
               onClick={() => redo()}
@@ -119,6 +123,7 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Add node"
               variant="ghost"
               size="icon"
               onClick={handleAddNode}
@@ -132,6 +137,7 @@ export function Toolbar({ onSave, onLoad, onAddNode, onClear }: ToolbarProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Clear diagram"
               variant="ghost"
               size="icon"
               onClick={handleClear}
